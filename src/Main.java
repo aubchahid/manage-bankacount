@@ -8,6 +8,13 @@ public class Main {
                 45000
         );
 
+        SavingAccount savingAccount = new SavingAccount(
+                "254 154 777778484848584 59",
+                45000,
+                true
+
+        );
+
         Scanner scanner = new Scanner(System.in);
         boolean isExist = false;
         while (!isExist) {
@@ -17,7 +24,9 @@ public class Main {
             System.out.println("1- To enter a new deposit");
             System.out.println("2- To withdraw from your balance");
             System.out.println("3- To display your balance");
-            System.out.println("4- Exit");
+            System.out.println("4- To enter a new deposit to saving account");
+            System.out.println("5- Display saving account balance");
+            System.out.println("6- Exit");
 
             int choice = scanner.nextInt();
             switch (choice) {
@@ -36,8 +45,16 @@ public class Main {
                    bankAccount.getBalance();
                    break;
                 case 4 :
-                   isExist = true;
+                    System.out.println("Enter saving money :");
+                    double saving = scanner.nextDouble();
+                    savingAccount.deposit(saving);
+                    break;
+                case 5 :
+                   savingAccount.getBalance();
                    break;
+                case 6 :
+                    isExist = true;
+                    break;
                 default:
                    System.out.println("Enter a valid menu number.");
             }
